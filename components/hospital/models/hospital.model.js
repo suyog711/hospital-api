@@ -26,6 +26,9 @@ var HospitalSchema = new Schema({
         type: Number,
         required: true
     },
+    email: {
+        type: String,
+    },
     website: {
         type: String,
     },
@@ -48,7 +51,7 @@ var HospitalSchema = new Schema({
         type: String
     },
     departments: {
-        type: Schema.Types.ObjectId,
+        type: [Schema.Types.ObjectId],
         ref: 'departments'
     },
     createdBy: {
