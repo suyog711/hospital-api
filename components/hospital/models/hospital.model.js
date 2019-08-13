@@ -10,6 +10,19 @@ var HospitalSchema = new Schema({
         type: Number,
         required: true
     },
+<<<<<<< HEAD
+=======
+    phoneNUmber2: {
+        type: Number,
+    },
+    emergencyNumber: {
+        type: Number,
+        required: true
+    },
+    email: {
+        type: String,
+    },
+>>>>>>> correcred hospital model
     website: {
         type: String,
     },
@@ -25,7 +38,7 @@ var HospitalSchema = new Schema({
         ref: 'citys'
     },
     departments: {
-        type: Schema.Types.ObjectId,
+        type: [Schema.Types.ObjectId],
         ref: 'departments'
     },
     createdBy: {
