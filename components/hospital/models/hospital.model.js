@@ -10,19 +10,6 @@ var HospitalSchema = new Schema({
         type: Number,
         required: true
     },
-<<<<<<< HEAD
-    phoneNUmber2: {
-        type: Number,
-    },
-    emergencyNumber: {
-        type: Number,
-        required: true
-    },
-    email: {
-        type: String,
-    },
-=======
->>>>>>> d0929027f7a778e9e6c7c86e6fc554b97f233eed
     website: {
         type: String,
     },
@@ -38,7 +25,7 @@ var HospitalSchema = new Schema({
         ref: 'citys'
     },
     departments: {
-        type: [Schema.Types.ObjectId],
+        type: Schema.Types.ObjectId,
         ref: 'departments'
     },
     createdBy: {
