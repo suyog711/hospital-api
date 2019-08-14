@@ -4,6 +4,7 @@ var logger = require('morgan');
 var config = require('./config/config');
 var cityRoute = require('./components/city/city.routes');
 var deptRoute = require('./components/department/dept.routes');
+var hospRoute = require('./components/hospital/hospital.routes');
 require('./config/db.config');
 
 var app = express();
@@ -22,6 +23,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/city', cityRoute);
 app.use('/department', deptRoute);
+app.use('/hospital', hospRoute);
 
 app.use((req, res, next) => {
     return next({

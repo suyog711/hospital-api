@@ -5,6 +5,7 @@ var mapHospital = require('./../helpers/mapHospitalReq');
 function find(condition) {
     return new Promise((resolve, reject) => {
         HospitalModel.find(condition)
+            .populate('city')
             .exec((err, result) => {
                 if (err) {
                     reject(err);
@@ -18,12 +19,19 @@ function find(condition) {
 function insert(data) {
     return new Promise((resolve, reject) => {
         var newHospital = new HospitalModel;
-        mapHospital(data, newHospital);
-
+        mapHospital(newHospital, data);
+        newHospital.save((err, saved) => {
+            if (err) {
+                reject(err);
+            } else {
+                resolve(saved);
+            }
+        })
     })
 }
 
 module.exports = {
     find,
+    insert
 
 }
