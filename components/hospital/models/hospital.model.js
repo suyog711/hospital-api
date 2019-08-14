@@ -6,19 +6,11 @@ var HospitalSchema = new Schema({
         type: String,
         required: true,
     },
-    verificationType: {
-        type: String,
-        required: true,
-    },
-    VerificationNumber: {
-        type: String,
-        required: true,
-        unique: true
-    },
     phoneNumber: {
         type: Number,
         required: true
     },
+<<<<<<< HEAD
     phoneNUmber2: {
         type: Number,
     },
@@ -29,6 +21,8 @@ var HospitalSchema = new Schema({
     email: {
         type: String,
     },
+=======
+>>>>>>> d0929027f7a778e9e6c7c86e6fc554b97f233eed
     website: {
         type: String,
     },
@@ -42,13 +36,6 @@ var HospitalSchema = new Schema({
     city: {
         type: Schema.Types.ObjectId,
         ref: 'citys'
-    },
-    state: {
-        type: String,
-        required: true
-    },
-    description: {
-        type: String
     },
     departments: {
         type: [Schema.Types.ObjectId],
