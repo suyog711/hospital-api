@@ -1,8 +1,8 @@
-var deptModel = require('./../models/department.model');
+var DeptModel = require('./../models/department.model');
 var mapDept = require('./../helpers/mapDepartmentReq');
 
 function findDept(condition, cb) {
-    deptModel.find(condition)
+    DeptModel.find(condition)
         .exec((err, dept) => {
             if (err) {
                 cb(err);

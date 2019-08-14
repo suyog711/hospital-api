@@ -1,11 +1,11 @@
 var express = require('express');
 var router = express.Router();
-var cityModel = require('./models/city.model');
+var CityModel = require('./models/city.model');
 
 router.route('/')
     .get((req, res, next) => {
         var condition = {};
-        cityModel.find(condition)
+        CityModel.find(condition)
             .exec(function (err, city) {
                 if (err) {
                     return next(err);
@@ -15,7 +15,7 @@ router.route('/')
             })
     })
     .post((req, res, next) => {
-        var city = new cityModel;
+        var city = new CityModel;
         city.name = req.body.city;
         city.save((err, done) => {
             if (err) {
