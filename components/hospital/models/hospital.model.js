@@ -10,19 +10,6 @@ var HospitalSchema = new Schema({
         type: Number,
         required: true
     },
-<<<<<<< HEAD
-=======
-    phoneNUmber2: {
-        type: Number,
-    },
-    emergencyNumber: {
-        type: Number,
-        required: true
-    },
-    email: {
-        type: String,
-    },
->>>>>>> correcred hospital model
     website: {
         type: String,
     },
