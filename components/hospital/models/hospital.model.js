@@ -24,10 +24,10 @@ var HospitalSchema = new Schema({
         type: Schema.Types.ObjectId,
         ref: 'citys'
     },
-    departments: {
-        type: [Schema.Types.ObjectId],
+    departments: [{
+        type: Schema.Types.ObjectId,
         ref: 'departments'
-    },
+    }],
     createdBy: {
         type: Schema.Types.ObjectId,
         ref: 'users'
