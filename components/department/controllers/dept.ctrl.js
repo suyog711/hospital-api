@@ -10,7 +10,12 @@ function getAllDept(req, res, next) {
     })
 };
 
+function createDept(req, res, next) {
+    deptQueries.addDept()
+}
+
 
 module.exports = {
     getAllDept,
+    createDept,
 }
