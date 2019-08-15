@@ -16,10 +16,10 @@ function find(condition) {
     })
 }
 
-function insert(data) {
+function insert(hospitalDetail) {
     return new Promise((resolve, reject) => {
         var newHospital = new HospitalModel;
-        mapHospital(newHospital, data);
+        mapHospital(newHospital, hospitalDetail);
         newHospital.save((err, saved) => {
             if (err) {
                 reject(err);

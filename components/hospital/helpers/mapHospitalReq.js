@@ -1,16 +1,16 @@
-module.exports = (newHospital, hospitalDetails) => {
-    if (hospitalDetails.name)
-        newHospital.name = hospitalDetails.name;
-    if (hospitalDetails.phoneNumber)
-        newHospital.phoneNumber = hospitalDetails.phoneNumber;
-    if (hospitalDetails.website)
-        newHospital.website = hospitalDetails.website;
-    if (hospitalDetails.address)
-        newHospital.address = hospitalDetails.address;
-    if (hospitalDetails.address2)
-        newHospital.address2 = hospitalDetails.address2;
-    if (hospitalDetails.city)
-        newHospital.city = hospitalDetails.city;
-    // if (hospitalDetails.departments)
-    //     newHospital.departments = hospitalDetails.departments;
+module.exports = (newHospital, hospitalDetail) => {
+    if (hospitalDetail.name)
+        newHospital.name = hospitalDetail.name;
+    if (hospitalDetail.phoneNumber)
+        newHospital.phoneNumber = hospitalDetail.phoneNumber;
+    if (hospitalDetail.website)
+        newHospital.website = hospitalDetail.website;
+    if (hospitalDetail.address)
+        newHospital.address = hospitalDetail.address;
+    if (hospitalDetail.address2)
+        newHospital.address2 = hospitalDetail.address2;
+    if (hospitalDetail.city)
+        newHospital.city = hospitalDetail.city;
+    // if (hospitalDetail.departments)
+    //     newHospital.departments = hospitalDetail.departments;
 }
