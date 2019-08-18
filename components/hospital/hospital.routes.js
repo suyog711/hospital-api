@@ -5,4 +5,8 @@ router.route('/')
     .get(hospController.getAllHospital)
     .post(hospController.createNewHospital)
 
+router.route('/:id')
+    .get(hospController.getHospitalById)
+    .put(hospController.updateHospital)
+
 module.exports = router;
