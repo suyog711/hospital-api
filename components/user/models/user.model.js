@@ -17,9 +17,6 @@ var UserSchema = new Schema(
             type: String,
             required: true
         },
-        phoneNumber: {
-            type: Number
-        },
         email: {
             type: String,
             unique: true,
@@ -31,13 +28,13 @@ var UserSchema = new Schema(
         },
         role: {
             type: Number,
-            enum: [1, 2, 3], // 1 for admin, 2 for normal user, 3 for visitors
+            enum: [1, 2], // 1 for admin, 2 for normal user
             default: 2
         },
         updatedBy: String,
         activeStatus: {
             type: Boolean,
-            default: false
+            default: true
         }
     },
     {

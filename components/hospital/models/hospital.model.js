@@ -5,6 +5,8 @@ var HospitalSchema = new Schema({
     name: {
         type: String,
         required: true,
+        lowercase: true,
+        unique: true
     },
     phoneNumber: {
         type: Number,
