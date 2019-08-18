@@ -11,6 +11,6 @@ module.exports = (newHospital, hospitalDetail) => {
         newHospital.address2 = hospitalDetail.address2;
     if (hospitalDetail.city)
         newHospital.city = hospitalDetail.city;
-    // if (hospitalDetail.departments)
-    //     newHospital.departments = hospitalDetail.departments;
+    if (hospitalDetail.departments)
+        newHospital.departments = hospitalDetail.departments;
 }

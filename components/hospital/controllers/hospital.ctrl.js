@@ -10,20 +10,42 @@ function getAllHospital(req, res, next) {
         .catch((err) => {
             return next(err);
         })
+};
+
+function getHospitalById(req, res, next) {
+    var condition = { _id: req.params.id };
+    hospitalQuery.find(condition)
+        .then((hosp) => {
+            res.status(200).json(hosp)
+        })
+        .catch((err) => {
+            return next(err)
+        })
 }
 
 function createNewHospital(req, res, next) {
     var data = req.body;
-    console.log(data);
-    deptQuery.addDept(data.department)
-        .then((added) => {
-            console.log('dept added', added);
-            res.send(200);
-            // return hospitalQuery.insert(data)
+    deptQuery.addDeptToHospital(data)
+        .then((newHospital) => {
+            return hospitalQuery.insert(newHospital)
         })
-        //     .then((created) => {
-        //         res.status(200).json(created);
-        //     })
+        .then((created) => {
+            res.status(200).json(created);
+        })
+        .catch((err) => {
+            return next(err);
+        })
+}
+
+function updateHospital(req, res, next) {
+    var data = req.body;
+    deptQuery.addDeptToHospital(data)
+        .then((updatedHospital) => {
+            return hospitalQuery.update(req.params.id, updatedHospital)
+        })
+        .then((updated) => {
+            res.status(200).json(updated);
+        })
         .catch((err) => {
             return next(err);
         })
@@ -31,6 +53,7 @@ function createNewHospital(req, res, next) {
 
 module.exports = {
     getAllHospital,
+    getHospitalById,
     createNewHospital,
-
+    updateHospital
 }

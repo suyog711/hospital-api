@@ -5,7 +5,7 @@ var mapHospital = require('./../helpers/mapHospitalReq');
 function find(condition) {
     return new Promise((resolve, reject) => {
         HospitalModel.find(condition)
-            .populate('city')
+            .populate('city departments')
             .exec((err, result) => {
                 if (err) {
                     reject(err);
@@ -30,8 +30,33 @@ function insert(hospitalDetail) {
     })
 }
 
+function update(id, hospitalDetail) {
+    return new Promise((resolve, reject) => {
+        HospitalModel.findById({ _id: id })
+            .exec((err, hospital) => {
+                if (err) {
+                    reject(err);
+                }
+                if (hospital) {
+                    mapHospital(hospital, hospitalDetail);
+                    hospital.save((err, updated) => {
+                        if (err) {
+                            reject(err);
+                        }
+                        resolve(updated);
+                    });
+                } else {
+                    reject({
+                        message: 'Hospital not found'
+                    })
+                }
+            })
+    })
+}
+
 module.exports = {
     find,
-    insert
+    insert,
+    update
 
 }

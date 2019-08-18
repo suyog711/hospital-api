@@ -1,8 +1,5 @@
-module.exports = (dep, newDep) => {
-    if (newDep) {
-        newDep.forEach((item) => {
-
-        });
-
+module.exports = (newDep, depName) => {
+    if (depName) {
+        newDep.name = depName;
     }
 }
