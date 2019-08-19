@@ -3,8 +3,10 @@ var path = require('path');
 var logger = require('morgan');
 var config = require('./config/config');
 var cityRoute = require('./components/city/city.routes');
-var deptRoute = require('./components/department/dept.routes');
-var hospRoute = require('./components/hospital/hospital.routes');
+var departmentRoute = require('./components/department/dept.routes');
+var hospitalRoute = require('./components/hospital/hospital.routes');
+var userRoute = require('./components/user/user.routes');
+
 require('./config/db.config');
 
 var app = express();
@@ -22,8 +24,9 @@ app.use(express.urlencoded({ extended: false }));
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/city', cityRoute);
-app.use('/department', deptRoute);
-app.use('/hospital', hospRoute);
+app.use('/department', departmentRoute);
+app.use('/hospital', hospitalRoute);
+app.use('/user', userRoute)
 
 app.use((req, res, next) => {
     return next({
