@@ -6,6 +6,7 @@ var cityRoute = require('./components/city/city.routes');
 var departmentRoute = require('./components/department/dept.routes');
 var hospitalRoute = require('./components/hospital/hospital.routes');
 var userRoute = require('./components/user/user.routes');
+var authRoute = require('./components/auth/auth.routes');
 
 require('./config/db.config');
 
@@ -26,7 +27,8 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/city', cityRoute);
 app.use('/department', departmentRoute);
 app.use('/hospital', hospitalRoute);
-app.use('/user', userRoute)
+app.use('/user', userRoute);
+app.use('/auth', authRoute)
 
 app.use((req, res, next) => {
     return next({
