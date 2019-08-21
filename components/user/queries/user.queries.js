@@ -28,24 +28,25 @@ function insert(userDetails) {
 
 function update(id, userDetails) {
     return new Promise((resolve, reject) => {
-        UserModel.findById(id, (err, user) => {
-            if (err) {
-                reject(err);
-            }
-            if (user) {
-                mapUser(user, userDetails);
-                user.save((err, updated) => {
-                    if (err) {
-                        reject(err);
-                    }
-                    resolve(updated);
-                })
-            } else {
-                reject({
-                    message: 'User Not Found'
-                })
-            }
-        })
+        UserModel.findById(id)
+            .exec((err, user) => {
+                if (err) {
+                    reject(err);
+                }
+                if (user) {
+                    mapUser(user, userDetails);
+                    user.save((err, updated) => {
+                        if (err) {
+                            reject(err);
+                        }
+                        resolve(updated);
+                    })
+                } else {
+                    reject({
+                        message: 'User Not Found'
+                    })
+                }
+            })
     })
 };
 
