@@ -13,4 +13,6 @@ module.exports = (newHospital, hospitalDetail) => {
         newHospital.city = hospitalDetail.city;
     if (hospitalDetail.departments)
         newHospital.departments = hospitalDetail.departments;
+    if (hospitalDetail.hasOwnProperty('activeStatus'))
+        newHospital.activeStatus = hospitalDetail.activeStatus;
 }

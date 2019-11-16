@@ -8,6 +8,7 @@ var hospitalRoute = require('./components/hospital/hospital.routes');
 var userRoute = require('./components/user/user.routes');
 var authRoute = require('./components/auth/auth.routes');
 var doctorRoute = require('./components/doctor/doctor.routes');
+var cors = require('cors')
 
 require('./config/db.config');
 
@@ -19,6 +20,7 @@ app.listen(config.port, function (err, done) {
     }
     console.log('listening in port: ', config.port);
 })
+app.use(cors());
 
 app.use(logger('dev'));
 app.use(express.json());

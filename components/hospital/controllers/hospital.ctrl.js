@@ -25,6 +25,7 @@ function getHospitalById(req, res, next) {
 
 function createNewHospital(req, res, next) {
     var data = req.body;
+    console.log(data);
     deptQuery.addDeptToHospital(data)
         .then((newHospital) => {
             return hospitalQuery.insert(newHospital)
